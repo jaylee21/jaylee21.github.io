@@ -49,7 +49,7 @@ contact:
 # Example of adding a new link to the footer - {icon: "ion-logo-facebook", link: "https://facebook.com"}
 # Other icons can be found at https://ionicons.com/v4/
 social:
-# - {icon: "ion-logo-twitter", link: "https://twitter.com"}
+- {icon: "<ion-icon name="logo-linkedin"></ion-icon>", link: "https://www.linkedin.com/in/jay-jai-woo-lee-957217143/"}
 - {icon: "ion-logo-github", link: "https://github.com"}
 - {icon: "ion-logo-youtube", link: "https://youtube.com"}
 - {icon: "ion-logo-pinterest", link: "https://pinterest.com"}
