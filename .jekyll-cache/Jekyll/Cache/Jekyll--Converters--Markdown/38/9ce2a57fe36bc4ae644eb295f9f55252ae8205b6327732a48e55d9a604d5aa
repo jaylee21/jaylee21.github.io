@@ -1,0 +1,249 @@
+I"4;<h2 id="summary">Summary</h2>
+
+<p>California University Silicon Valley is an accredited private university that offers master program for students who want to become licensed acupuncturists. The students must complete 143 credit, or average of 3.5 years, and 960 hours of internship to be eligible for the certificate examination. Our client wants to manage key metrics which are certificate exam pass rate, enrollment rate, student managment effectively. However, its lack of IT capacity leads to high time consumption and low accuracy in decisions they make. <strong>Our goal is to build effective database management system and SQL queries that accomplish its business objectives.</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Tools / Libraries used:</strong> SQL</p>
+  </li>
+  <li>
+    <p><strong>Dataset:</strong> Acquired from client / student(name, grade, etc.) and course information</p>
+  </li>
+  <li>
+    <p><strong>Analyses Performed:</strong> Business Requirement Analysis, ERD, Relational Schema, Data Cleaning, Database Normalization</p>
+  </li>
+</ul>
+
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+  <li>Performing business flow analysis allowed us kinds of data to collect from our client. The data that we requested are: visitor data(time visited, name), students data, course data, and exam pass data.</li>
+  <li>Then we built ERD and relational schemas (see below). Next, we performed data cleansing. We removed data redundancy, change data format for consistency, and normalized from 0NF to 3NF.</li>
+  <li>Then we uploaded the table into SQL and performed analysis. Please see <strong>5. Business Insights and Recommendations</strong> below for detail.
+    <ul>
+      <li>The current pass rate is 74% and enrollment rate is 7%.</li>
+      <li>Students who visited have an average GPA of 3.74, whereas students who did not have an average of 3.31.</li>
+      <li>Categories of courses have widely different average grades.</li>
+      <li>13% of the students are at risk of not completing the program.</li>
+    </ul>
+  </li>
+  <li>With our analysis, we expected the company to have positive short-term and long-term effective. In a short term, the company would be able to reduce the cost in human expenditure by 45% and increase efficiency by 88%. Moreover, in a long run, the company would be able to enhance the education quality, ultimately leading to positive effectives in its KPIs.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="details-of-the-project">Details of the Project</h2>
+
+<h5 id="1-background">1. Background</h5>
+<p>California University – Silicon Valley (CUSV) is a school that provides a master’s program in Acupuncture and Oriental Medicine (AOM). The aim of the school is to train students to become AOM professionals, with the ability to practice as independent health care providers in a variety of setting including medicine theory, acupuncture, herbology &amp; herbal formulas, Western medicine &amp; science, Tui Na (traditional Chinese massage therapy), etc.</p>
+
+<p>To be a Licensed Acupuncturist, one needs to pass a certification exam in the state of California. The average length for the program is 3.5 years including 143 credit hours course and 960 hours clinic internship. Once students finish their minimum credit hours and pass their comprehensive exam, they will be able to work an internship in the clinic which is also a requirement for a certificate.</p>
+
+<p>Also, as a private school, CUSV must report its enrolment and pass statistics to the US government. Currently, they track these metrics manually, which is estimated to cost 3,000 USD per month. An automated database management system would save them this cost and time.</p>
+
+<p>Therefore, we focus on their business scenario from the registration department to certification information including students, courses, instructors, certificates, etc. Try to develop a comprehensive database system that can truly help them examine metrics efficiently.</p>
+<div style="text-align:center">
+<h5>[University Website]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-00.jpg" alt="2021-12-19-00.jpg" style="zoom:70%;" class="center" />
+</div>
+
+<p><br /></p>
+<h5 id="2-introduction-project-objective">2. Introduction: project objective</h5>
+<p>The primary objective for the school is to meet the requirements of the National Certification Commission for Acupuncture and Oriental Medicine (NCCAOM) including the ability to pass the acupuncture and herbal certification exams. Thus, our database system designed is to help trace the certification passing rate as well as other internal exam performance.
+The database system can at the same time work well as the student management system which helps the school track the in-class as well as the internship performance.</p>
+<div style="text-align:center">
+<h5>[Business Requirement Analysis]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-01.jpg" alt="2021-12-19-01.jpg" style="zoom:70%;" class="center" />
+</div>
+
+<p><br /></p>
+<h5 id="3-database-design-erd-and-relational-schema">3. Database Design: ERD and Relational Schema</h5>
+<p>In our database, we have seven entities including Visitor, Student, Exam, Course, Category, Semester, GPAGrade and two associative entities including Take(Student-Exam) and Enroll(Student-Course).</p>
+
+<p><br /></p>
+<div style="text-align:center">
+<h5>[ER Diagram]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-02.jpg" alt="2021-12-19-02.jpg" />
+</div>
+
+<p><br /></p>
+<div style="text-align:center">
+<h5>[Relational Schema 1]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-03.jpg" alt="2021-12-19-03.jpg" />
+</div>
+
+<p><br /></p>
+<div style="text-align:center">
+<h5>[Relational Schema 2]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-04.jpg" alt="2021-12-19-04.jpg" style="zoom:70%;" class="center" />
+</div>
+
+<ul>
+  <li>We decided to create a new table to store grades and their corresponding GPA values. This is because including the GPA value in the student_course associative entity would be a functional dependency so to normalize the entity, we created a mapping table.</li>
+  <li>Every course has a course description associated with it (except core courses). If we included them all in the courses database, we would run into an anomaly if these were to change. Instead, we created a foreign key (ID) and linked it to a separate entity.</li>
+  <li>It is important for the university to track how its students do on the certification exam. In order to track this, we created a separate exam entity. This is different from the other exams because it is offered by a separate agency, not the university.</li>
+  <li>The university offers exams before and after the internship. The exam offered before the internship is called the Comprehensive Exam. The one after is the Graduation exam.
+    <ul>
+      <li>The exam after the internship is stored in the database as Graduation exam. The grade from this course will be the grade from the post-internship exam.</li>
+      <li>The grade from before the internship (the comprehensive exam) is a separate class by itself.</li>
+      <li>These were already how the university stored these exam grades so we decided to work with it.</li>
+    </ul>
+  </li>
+  <li>Similar to most other universities, the CRN is a code that is unique to every section across all years. CRNs will never be repeated once used.</li>
+</ul>
+
+<p><br /></p>
+<h5 id="4-queries">4. Queries</h5>
+<p>Purpose of Queries:  The purpose of using query is to manage students efficiently. CUSV managed students, course information, and exam passing rate manually. However, by using proper database and querying practices, we helped them manage students easily. CUSV also wanted to track and manage how many visitors end up enrolling in the institution (similar to managing a marketing funnel). We created a visitor entity and matched the visitorID to the student table, making this task easier.</p>
+
+<ul>
+  <li>The percentage of visitors that convert into students: The client wants to track conversion rate to see how effective student visits are.  The client will be able to track how various promotions impact the conversion rate.
+<br /></li>
+</ul>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-code-01.jpg" alt="2021-12-19-code-01.jpg" class="center" />
+</div>
+
+<p><br /></p>
+<ul>
+  <li>The rate at which students retake the certificate exam: Understanding how frequently students fail exams will show whether or not there is a problem that needs addressing.  Currently, one in every four students will fail the state certification exam, something that may spur some action from the client to improve pass rates.
+<br /></li>
+</ul>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-code-02.jpg" alt="2021-12-19-code-02.jpg" class="center" />
+</div>
+
+<p><br /></p>
+<ul>
+  <li>Top – Average GPA of students who pass the exam on the first try.  Bottom – Average GPA of students who fail the certification exam: The average GPA of students who fail the certificate exam at least once is lower than the average GPA of students who pass on the first try.  This might help the client identify those students who are at greatest risk of failing the certificate exam.
+<br /></li>
+</ul>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-code-03.jpg" alt="2021-12-19-code-03.jpg" class="center" />
+</div>
+
+<p><br /></p>
+<ul>
+  <li>Breakdown of average GPA by category: There is significant variation in grades between categories – the client is now aware that there are factors that affect students’ grades outside of just their dedication to studying.
+<br /></li>
+</ul>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-code-04.jpg" alt="2021-12-19-code-04.jpg" class="center" />
+</div>
+
+<p><br /></p>
+<ul>
+  <li>GPA of the top five courses, by highest GPA: This indicates that there are quite a few courses that seem very easy and/or are taught exceptionally well.  This is a factor in students’ grades.
+<br /></li>
+</ul>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-code-05.jpg" alt="2021-12-19-code-05.jpg" class="center" />
+</div>
+
+<p><br /></p>
+<ul>
+  <li>GPA of the lowest five courses, by lowest GPA: This query, combined with the above query, shows that there is great difference between courses in terms of average GPA.  This should be something that the client considers when deciding how to improve coursework (whether to make it better or to get a better instructor) and when assessing which students are at risk of not graduating the program and passing the state certificate exam.
+<br /></li>
+</ul>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-code-06.jpg" alt="2021-12-19-code-06.jpg" class="center" />
+</div>
+
+<p><br /></p>
+<ul>
+  <li>A table of all students who have a grade of C or lower: In order to pass the program, a student has to have a cumulative GPA greater than a C.  The above students should be supported in their effort to complete coursework and pass the state certification exam.
+<br /></li>
+</ul>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-code-07.jpg" alt="2021-12-19-code-07.jpg" class="center" />
+</div>
+
+<p><br /></p>
+<ul>
+  <li>Top number – Average GPA of students who visited the university before enrolling.  Bottom number – Average GPA of students who did not visit the university before enrolling: Considering that GPA is an indicator of a student’s likelihood of passing the state exam, the fact that a student was a visitor before enrolling is an incredibly strong predictor of success within the program.  The client should consider what factors may make this fact reality and decide whether a strategy of enrolling more visitors should be implemented.
+<br /></li>
+</ul>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-code-08.jpg" alt="2021-12-19-code-08.jpg" class="center" />
+</div>
+
+<p><br /></p>
+<ul>
+  <li>The average GPA for each of the summer, spring, and summer semesters present so far in the database: The above query highlights another factor in student GPA’s – spring courses tend to produce much higher grades than fall and summer courses.
+<br /></li>
+</ul>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-code-09.jpg" alt="2021-12-19-code-09.jpg" class="center" />
+</div>
+
+<p><br /></p>
+<ul>
+  <li>An ordering of location of certificate examinations, by pass rate (descending): Since the university is concerned with pass rates for its students, it will be interested in seeing that some test sites show a greater pass rate than others, and that the most popular test site is the one with the lowest test rate.
+<br /></li>
+</ul>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-code-10.jpg" alt="2021-12-19-code-10.jpg" class="center" />
+</div>
+
+<p><br /></p>
+
+<h5 id="5-business-insights-and-recommendations">5. Business Insights and Recommendations</h5>
+<h5 id="exam">[Exam]</h5>
+<ul>
+  <li>The current certificate pass rate is 74%, including the students who took the exam multiple times. The university needs to store data of students with different number of exam taken separately.</li>
+  <li>At least a quarter of the students take the exam several times.</li>
+  <li>Those who fail the exam tend to have lower grades. Current students with a GPA lower than 3.27 should be taken care of.
+    <ul>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>Pass: 3.35</td>
+              <td>Fail: 3.27</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>Pass rates tend to be different based on exam sites. However, because of the small number of samples, this number may have been distorted. Nevertheless, the university should keep track of this metrics so that it can help the students benefit.</li>
+</ul>
+
+<h5 id="enrollment">[Enrollment]</h5>
+<ul>
+  <li>The current enrollment rate is 7%.</li>
+  <li>Students who visited have an average GPA of 3.74, whereas students who did not have an average GPA of 3.31. It is because of the consulting service that the university provides to students who visit the university. The university should have more students to go through the visiting stage.</li>
+</ul>
+
+<h5 id="student-management">[Student Management]</h5>
+<ul>
+  <li>Categories of courses have widely differing average grades.
+    <ul>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>Medical Theory: 2.9</td>
+              <td>Patient Assessment: 3.6</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>We were able to identify students who are at risk of not completing the program.
+    <ul>
+      <li>Below C rate: 13% or 4 students</li>
+    </ul>
+  </li>
+</ul>
+:ET
