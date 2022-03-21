@@ -134,6 +134,10 @@
                   
                 
               
+                
+                  
+                
+              
             </ul>
           </div>
         </nav>
@@ -237,13 +241,13 @@
   <article class="post animate">
 
     <div class="post__content">
-      <h2 id="summary">Summary</h2>
+      <h2 id="introduction">Introduction</h2>
 
-<p>In this class project, our group <strong>aimed to develop a classification model</strong> that correctly classifies each posting in the video gaming category in Craigslist into a corresponding brand to enhance user experience and the company’s key business performance.</p>
+<p>In this project, our group <strong>aimed to develop a classification model</strong> that correctly classifies each posting in the video gaming category in Craigslist into a corresponding brand to enhance user experience and the company’s key business performance.</p>
 
 <ul>
   <li>
-    <p><strong>Tools / Libraries used:</strong> Python (beautiful soup, pandas, nltk, scikit-learn, keras, etc.)</p>
+    <p><strong>Tools / Libraries used:</strong> Python / beautiful soup, pandas, nltk, scikit-learn, keras, etc.</p>
   </li>
   <li>
     <p><strong>Dataset:</strong> Web Scrapped / titles and reviews of posts in Craiglist / 3011 rows * 8 columns</p>
@@ -253,21 +257,71 @@
   </li>
 </ul>
 
-<h2 id="key-takeaways">Key Takeaways</h2>
-<ul>
-  <li>Our best model was gradient boosting, performed 81% accuracy in the test dataset. It was greater than the website’s search rate which was 68%.</li>
-  <li>It shows that our best model would provide more correct results and minimize information loss on the searches that users performed on the website.</li>
-  <li>Therfore, we would expect that our model would contribute to an increase engagement of users with the webiste, leading to growth in retention rate and potentially generating more revenue.</li>
-</ul>
+<h2 id="analysis">Analysis</h2>
 
-<p><br /></p>
+<p>FIrst, we performed web-scrapping in the video gaming cateogry in Craigslist. We collected posting id, datetime, city, title, price, place, and description. Then we cleaned the data by removing dollar sign in price and parentheses in place, making the description column in one line, and lowering the title case.</p>
 
-<h2 id="details-of-codes-and-model-building-process">Details of Codes and Model Building Process</h2>
+<div style="text-align:center">
+<h5>[Date cleaning]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-23-text-class/picture1.png" alt="picture1.png" style="zoom:70%;" class="center" />
+</div>
+<p><br /><br /><br /></p>
+
+<p>Then to create target variables more efficiently, we wrote codes that count the number of words that are relevant to each brand, to assign each post to a corresponding category. For example, the first row in the table has the higest score in Aracde (4), so we assign that post to Arcade category.</p>
+
+<div style="text-align:center">
+<h5>[Creating target variables - Keyword extraction]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-23-text-class/picture2.png" alt="picture2.png" style="zoom:70%;" class="center" />
+</div>
+<p><br /><br /><br /></p>
+
+<p>Next, using predictor variables(title + description) and response variables(corresponding brands), we built 6 different models. We first vectorized the predictor variables from text to numerical values using TFIDF vectorization after tokenizing, lemmatizing and removing stop-words and punctuations. Then we splitted the dataset into train(70%) and test(70%) setsto train and evaluate our models.</p>
+
+<div style="text-align:center">
+<h5>[Model building]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-23-text-class/picture3.png" alt="picture3.png" style="zoom:70%;" class="center" />
+</div>
+<p><br /><br /><br /></p>
+
+<p>From the result, SVC model showed the higest accuracy with the score of 88.45%. From the confusion matrix of the SVC model, we can evaluate how model predicted each brand correctly.</p>
+
+<div style="text-align:center">
+<h5>[Model performance]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-23-text-class/picture4.png" alt="picture4.png" style="zoom:70%;" class="center" />
+
+<div style="text-align:center">
+<h5>[Confusion matrix]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-23-text-class/picture5.png" alt="picture5.png" style="zoom:70%;" class="center" />
+</div><br /><br /><br />
+
+
+Our model generated huge information gain by 34%. The website's search rate is 68% and our model classification rate is 92% (excluding others). It shows that our best model would provide more correct results and minimize information loss on the searches that users performed on the website. Therfore, we would expect that our model would contribute to an increase engagement of users with the webiste, leading to growth in retention rate and potentially generating more revenue.
+
+<div style="text-align:center">
+<h5>[Information gain comparison]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-23-text-class/picture6.png" alt="picture6.png" style="zoom:70%;" class="center" />
+</div><br /><br /><br />
+
+
+## Details of Codes and Model Building Process
 
 <div class="notebook-embedded">
 <iframe scrolling="yes" src="https://nbviewer.org/gist/jaylee21/e3b230d13eb3c54663f6163558d96c14" width="100%" data-embed="true" height="500" frameborder="0" allowfullscreen=""></iframe>
 </div>
 
+</div>
 
     </div>
 

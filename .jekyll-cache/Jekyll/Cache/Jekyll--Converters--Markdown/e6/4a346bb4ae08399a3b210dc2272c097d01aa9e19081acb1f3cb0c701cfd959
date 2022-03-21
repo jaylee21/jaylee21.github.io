@@ -1,4 +1,4 @@
-I"o<h2 id="analysis">Analysis</h2>
+I"•<h2 id="introduction">Introduction</h2>
 
 <p>In this project, our group <strong>performed survival analysis on lung cancer data</strong> to describe current survival rate by various different factors and determine significant factors that affect the survival rate over other factors.</p>
 
@@ -10,11 +10,11 @@
     <p><strong>Dataset:</strong> North Central Cancer Treatment Group (NCCTG)</p>
   </li>
   <li>
-    <p><strong>Analyses Performed:</strong> Kaplan-Meier Plot, Cox Proportional Hazards Model, CART(for Imputation)</p>
+    <p><strong>Analyses Performed:</strong> Kaplan-Meier Plot, Cox Proportional Hazards Model, CART(for Imputation)<br /><br /><br /></p>
   </li>
 </ul>
 
-<h2 id="project-details">Project details</h2>
+<h2 id="analysis">Analysis</h2>
 
 <p>Our dataset consists of 10 columns and 228 rows and is patient-level records. Each row stands for unique patient, while each column means the following:</p>
 <ul>
@@ -36,6 +36,7 @@
 <div style="text-align:center;">
 <img src="../images/2022-02-21-surv/Picture1_wb.png" alt="Picture1_wb.png" style="zoom:70%;" class="center" />
 </div>
+<p><br /><br /><br /></p>
 
 <p>The dataset contained 67 NAs. Since deleting them would lead us to loss much information, we decided to impute these missing values by using a decision tree predictive model approach to predict the missing value. To do so, we used CART (Classification And Regression Trees).</p>
 

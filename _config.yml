@@ -2,7 +2,7 @@
 # General Site Settings
 title: Jay Lee
 logo: # You can add own logo. For example '/images/logo.png'.
-description: Atega - Creative Personal Blog Theme for Jekyll
+description: Jay Lee's data science project porfolio website
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jaylee21.github.io"
 blog-theme: light # By default, Atega theme uses a 'light' color scheme, to change the color scheme to dark use 'dark' value (_includes/color-scheme)
@@ -60,21 +60,21 @@ disqus-identifier: mr-brown # add your shortname for Disqus Comment. For example
 
 #-------------------------------
 # Gallery Footer Section
-gallery:
-  title: Gallery
-  images:
-    - alt: 'Minimalism'
-      url: '/images/06.jpg'
-    - alt: 'Minimalism'
-      url: '/images/05.jpg'
-    - alt: 'Minimalism'
-      url: '/images/08.jpg'
-    - alt: 'Minimalism'
-      url: '/images/03.jpg'
-    - alt: 'Minimalism'
-      url: '/images/09.jpg'
-    - alt: 'Minimalism'
-      url: '/images/04.jpg'
+# gallery:
+#   title: Gallery
+#   images:
+#     - alt: 'Minimalism'
+#       url: '/images/06.jpg'
+#     - alt: 'Minimalism'
+#       url: '/images/05.jpg'
+#     - alt: 'Minimalism'
+#       url: '/images/08.jpg'
+#     - alt: 'Minimalism'
+#       url: '/images/03.jpg'
+#     - alt: 'Minimalism'
+#       url: '/images/09.jpg'
+#     - alt: 'Minimalism'
+#       url: '/images/04.jpg'
 
 
 #-------------------------------

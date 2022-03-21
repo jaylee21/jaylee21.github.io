@@ -7,7 +7,7 @@ tags:   [R, mice, survival]
 ---
 
 
-## Analysis
+## Introduction
 
 In this project, our group **performed survival analysis on lung cancer data** to describe current survival rate by various different factors and determine significant factors that affect the survival rate over other factors.
 
@@ -15,9 +15,9 @@ In this project, our group **performed survival analysis on lung cancer data** t
 
 * **Dataset:** North Central Cancer Treatment Group (NCCTG)
 
-* **Analyses Performed:** Kaplan-Meier Plot, Cox Proportional Hazards Model, CART(for Imputation)
+* **Analyses Performed:** Kaplan-Meier Plot, Cox Proportional Hazards Model, CART(for Imputation)<br><br><br>
 
-## Project details
+## Analysis
 
 Our dataset consists of 10 columns and 228 rows and is patient-level records. Each row stands for unique patient, while each column means the following:
 * inst: institution code
@@ -36,7 +36,9 @@ Our dataset consists of 10 columns and 228 rows and is patient-level records. Ea
 </div>
 <div style="text-align:center;">
 <img src="../images/2022-02-21-surv/Picture1_wb.png" alt="Picture1_wb.png" style="zoom:70%;" class="center" />
-</div>
+</div><br><br><br>
+
+
 
 The dataset contained 67 NAs. Since deleting them would lead us to loss much information, we decided to impute these missing values by using a decision tree predictive model approach to predict the missing value. To do so, we used CART (Classification And Regression Trees).
 
@@ -45,7 +47,9 @@ The dataset contained 67 NAs. Since deleting them would lead us to loss much inf
 </div>
 <div style="text-align:center;">
 <img src="../images/2022-02-21-surv/Picture2.png" alt="Picture2.png" style="zoom:70%;" class="center" />
-</div>
+</div><br><br><br>
+
+
 
 First, the graph below is showing the overall survival rate. **41% patients survived by the first year** and **11% patients survived by the second year.** Despite the small size of records, this graph depicts severity of lung cancel well. 
 
@@ -54,7 +58,7 @@ First, the graph below is showing the overall survival rate. **41% patients surv
 </div>
 <div style="text-align:center;">
 <img src="../images/2022-02-21-surv/Picture3.png" alt="Picture3.png" style="zoom:70%;" class="center" />
-</div>
+</div><br><br><br>
 
 Then we analyzed the survival rate in more detail by different factors. In this data, **female tends to have 45% less risk than male on average,** based on cox model. As we can see from the graph on the right hand side, the survival trend of the female is higher most of the time.
 
@@ -63,7 +67,7 @@ Then we analyzed the survival rate in more detail by different factors. In this 
 </div>
 <div style="text-align:center;">
 <img src="../images/2022-02-21-surv/Picture4.png" alt="Picture4.png" style="zoom:70%;" class="center" />
-</div>
+</div><br><br><br>
 
 By age, **patients over 70 years old have 60% higher chance of succumbing to cancer than people below 50 years**. By weight, for **1 unit increase in the weight loss, there is a 2% decrease in chance of succumbing to the dieases**. 
 
@@ -72,7 +76,7 @@ By age, **patients over 70 years old have 60% higher chance of succumbing to can
 </div>
 <div style="text-align:center;">
 <img src="../images/2022-02-21-surv/Picture5.png" alt="Picture5.png" style="zoom:70%;" class="center" />
-</div>
+</div><br><br><br>
 
 We noticed clear trends of survival rate by types of ECOG as well. **In the first year, ECOG=0 has higher survival rate than ECOG1 and ECOG2.** Based on the cox model, patients who are in ECOG 1, ECOG 2, and ECOG 3 type have **90%, 262%, and 1,062% more risks of death** than patients who are in ECOG 0, by more than 95% confidence level.
 
@@ -88,7 +92,7 @@ We noticed clear trends of survival rate by types of ECOG as well. **In the firs
 </div>
 <div style="text-align:center;">
 <img src="../images/2022-02-21-surv/Picture7.png" alt="Picture7.png" style="zoom:70%;" class="center" />
-</div>
+</div><br><br><br>
 
 The survival rate trends by karnofksy scores by both patients and physicians were not statistically significant. However, we found out that the survival rate by difference between these two was significant. After taking the differene of these two factors, we categorized them into three buckets; 0 being patient feels she/he is healthier, 1 being physician and patient are on the same page, and 2 being patient feels she/he is sicker. 
 
@@ -99,7 +103,7 @@ Based on the cox model, patients who feel sicker has 64% higher risk of death wh
 </div>
 <div style="text-align:center;">
 <img src="../images/2022-02-21-surv/Picture8.png" alt="Picture8.png" style="zoom:70%;" class="center" />
-</div>
+</div><br><br><br>
 
 ## Conclusion
 
@@ -107,5 +111,5 @@ Our analysis would give insights to medical professionals for better treatment a
 1. Make patients believe that they are healthier than they feel or think 
 2. Partner with health fitness companies to better track calorie intake and weight loss
 3. Usage of additional metrics sush as quality of life or body mass index. 
-
+<br>
 The survival analysis is often undervalued especially nowadays due to high rise in AI, machine learning and deep learning. However, the survival analysis such as KM plots and cox proportional hazard model can be a very strong tool to describe and evaluate cencored information by many different factors. It can by not only used in medical fields but in many different situations such as in customer analysis (analyzing churn rate). 
