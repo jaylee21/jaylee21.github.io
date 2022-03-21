@@ -1,0 +1,99 @@
+I"<h2 id="analysis">Analysis</h2>
+
+<p>In this project, our group <strong>performed survival analysis on lung cancer data</strong> to describe current survival rate by various different factors and determine significant factors that affect the survival rate over other factors.</p>
+
+<ul>
+  <li>
+    <p><strong>Tools / Libraries used:</strong> R / mice, survival</p>
+  </li>
+  <li>
+    <p><strong>Dataset:</strong> North Central Cancer Treatment Group (NCCTG)</p>
+  </li>
+  <li>
+    <p><strong>Analyses Performed:</strong> Kaplan-Meier Plot, Cox Proportional Hazards Model, CART(for Imputation)</p>
+  </li>
+</ul>
+
+<h2 id="project-details">Project details</h2>
+
+<p>Our dataset consists of 10 columns and 228 rows and is patient-level records. Each row stands for unique patient, while each column means the following:</p>
+<ul>
+  <li>inst: institution code</li>
+  <li>time: survival time in days</li>
+  <li>status: cencoring status 1=censored, 2=even happened</li>
+  <li>age: age in years</li>
+  <li>sex: male=1, female=2</li>
+  <li>ph.ecog: ECOG performance score as rated by physician(asymptomatic=0 - bedbound=4).</li>
+  <li>ph.karno: karnofsky performance score (bad=0 - good=100) rated by physician</li>
+  <li>pat.karno: karnofsky performance score as rated by patient</li>
+  <li>meal.cal: calories consumed at meals</li>
+  <li>wt.loss: weight loss in last six months</li>
+</ul>
+
+<!-- <div style='text-align:center'>
+<h5>[University Website]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-00.jpg" alt="2021-12-19-00.jpg" style="zoom:70%;" class="center" />
+</div> -->
+
+<p>The dataset contained 67 NAs. Since deleting them would lead us to loss much information, we decided to impute these missing values by using a decision tree predictive model approach to predict the missing value. To do so, we used CART (Classification And Regression Trees).</p>
+
+<!-- <div style='text-align:center'>
+<h5>[University Website]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-00.jpg" alt="2021-12-19-00.jpg" style="zoom:70%;" class="center" />
+</div> -->
+
+<p>First, the graph below is showing the overall survival rate. <strong>41% patients survived by the first year</strong> and <strong>11% patients survived by the second year.</strong> Despite the small size of records, this graph depicts severity of lung cancel well.</p>
+
+<!-- <div style='text-align:center'>
+<h5>[University Website]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-00.jpg" alt="2021-12-19-00.jpg" style="zoom:70%;" class="center" />
+</div> -->
+
+<p>Then we analyzed the survival rate in more detail by different factors. In this data, <strong>female tends to have 45% less risk than male on average,</strong> based on cox model. As we can see from the graph on the right hand side, the survival trend of the female is higher most of the time.</p>
+
+<!-- <div style='text-align:center'>
+<h5>[University Website]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-00.jpg" alt="2021-12-19-00.jpg" style="zoom:70%;" class="center" />
+</div> -->
+
+<p>By age, <strong>patients over 70 years old have 60% higher chance of succumbing to cancer than people below 50 years</strong>. By weight, for <strong>1 unit increase in the weight loss, there is a 2% decrease in chance of succumbing to the dieases</strong>.</p>
+
+<!-- <div style='text-align:center'>
+<h5>[University Website]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-00.jpg" alt="2021-12-19-00.jpg" style="zoom:70%;" class="center" />
+</div> -->
+
+<p>We noticed clear trends of survival rate by types of ECOG as well. <strong>In the first year, ECOG=0 has higher survival rate than ECOG1 and ECOG2.</strong> Based on the cox model, patients who are in ECOG 1, ECOG 2, and ECOG 3 type have <strong>90%, 262%, and 1,062% more risks of death</strong> than patients who are in ECOG 0, by more than 95% confidence level.</p>
+
+<!-- <div style='text-align:center'>
+<h5>[University Website]</h5>
+</div>
+<div style="text-align:center;">
+<img src="../images/2021-12-19-dev-db/2021-12-19-00.jpg" alt="2021-12-19-00.jpg" style="zoom:70%;" class="center" />
+</div> -->
+
+<p>The survival rate trends by karnofksy scores by both patients and physicians were not statistically significant. However, we found out that the survival rate by difference between these two was significant. After taking the differene of these two factors, we categorized them into three buckets; 0 being patient feels she/he is healthier, 1 being physician and patient are on the same page, and 2 being patient feels she/he is sicker.</p>
+
+<p>Based on the cox model, patients who feel sicker has 64% higher risk of death where as patients who feel healthier has a 102% lower risk of death compared to the others.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Our analysis would give insights to medical professionals for better treatment and decision making. In addition, based on our analysis, we would be have to make a few recommendation to medical professionals and stakeholders:</p>
+<ol>
+  <li>Make patients believe that they are healthier than they feel or think</li>
+  <li>Partner with health fitness companies to better track calorie intake and weight loss</li>
+  <li>Usage of additional metrics sush as quality of life or body mass index.</li>
+</ol>
+
+<p>The survival analysis is often undervalued especially nowadays due to high rise in AI, machine learning and deep learning. However, the survival analysis such as KM plots and cox proportional hazard model can be a very strong tool to describe and evaluate cencored information by many different factors. It can by not only used in medical fields but in many different situations such as in customer analysis (analyzing churn rate).</p>
+:ET

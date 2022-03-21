@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  R Shiny App - Wine Recommender
-date:   2021-12-23 15:01:35 +0300
+date:   2021-11-15 15:01:35 +0300
 image:  '/images/2021-12-23-text-class/2021-12-23-main.jpg'
 tags:   [Python, scikit-learn, NLP]
 ---

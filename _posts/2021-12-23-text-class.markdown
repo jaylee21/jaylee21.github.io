@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  Text Classification of Postings in Video Gaming Category
+title:  Text Classification for Proper Categorization of Postings
 date:   2021-12-23 15:01:35 +0300
 image:  '/images/2021-12-23-text-class/2021-12-23-main.jpg'
-tags:   [Python, scikit-learn, Keras, NLP]
+tags:   [Python, scikit-learn, NLP]
 ---
 
 
@@ -21,7 +21,6 @@ In this class project, our group **aimed to develop a classification model** tha
 * Our best model was gradient boosting, performed 81% accuracy in the test dataset. It was greater than the website's search rate which was 68%.
 * It shows that our best model would provide more correct results and minimize information loss on the searches that users performed on the website.
 * Therfore, we would expect that our model would contribute to an increase engagement of users with the webiste, leading to growth in retention rate and potentially generating more revenue.
-* During the data cleaning process, we were successfully able to categorize each sample into a corresponding brand by using the scoring method. We scored each sample with keywords that were manually extracted and identified the highest score to match with a correct brand. We believe this scoring method would be very effective and scalable for categorization in further analyses.
 
 
 
