@@ -37,7 +37,7 @@ California University Silicon Valley is an accredited private university that of
       "title"    : "R Shiny App - Wine Recommender",
       "article"  : "<div class='article col col-4 col-d-6 col-t-12 animate'> <div class='article__inner'>  <div class='image-wrap'> <a class='article__image' href='/Rshiny'> <img src='/images/2021-11-10-Rshiny/main.JPG' alt='R Shiny App - Wine Recommender'> </a> </div>  <div class='article__content'> <h2 class='article__title'> <a href='/Rshiny'>R Shiny App - Wine Recommender</a> </h2> <p class='article__excerpt'> Summary
 
-In this class project, our group aimed to develop a classification model that correctly classifies each posting i... </p> <div class='article__meta'> <a href='/about/' class='article__author-link'>Jay Lee</a> <span class='article__date'><time datetime='2021-11-15T21:01:35+09:00'>15 Nov 2021</time></span>  <div class='article-tags__box'>  <a href='/tag/R' class='article__tag'>R</a>  <a href='/tag/shiny' class='article__tag'>shiny</a>  </div>  </div> </div> </div> </div>",
+In this project, our group developed an interactive and reactive application that enables customers to learn more... </p> <div class='article__meta'> <a href='/about/' class='article__author-link'>Jay Lee</a> <span class='article__date'><time datetime='2021-11-15T21:01:35+09:00'>15 Nov 2021</time></span>  <div class='article-tags__box'>  <a href='/tag/R' class='article__tag'>R</a>  <a href='/tag/shiny' class='article__tag'>shiny</a>  </div>  </div> </div> </div> </div>",
       "category" : "",
       "tags"     : "R and shiny",
       "url"      : "/Rshiny",
