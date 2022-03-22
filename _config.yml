@@ -20,7 +20,7 @@ author:
 hero:
   hero__title: Hi, I'm <span class="hero__name">Jay Lee</span>.
   hero__job: 
-  hero__description: I'm passionate about utilizing data analytics to impact business. 
+  hero__description: Having 4 years of experience as a business/finance analyst and advanced degree in business analytics, I'm passionate about utilizing data analytics to impact business. 
   hero__button__text: Read about my past
   hero__button__link: '/about'
   hero__image: '/images/profile.jpg'
@@ -38,7 +38,7 @@ mailchimp__button__text: Subscribe # Add your button text
 # Contact Settings
 contact:
   email: jaiwoolee92@gmail.com # Add your email for contant form
-  description: Atega comes with a built-in contact form, that you can use with Formspree service to handle up to 50 submissions per month for free. You could also easily switch to another contact form service if you want. # Add a description of your form
+  description: Please send me a message! # Add a description of your form
 
 # NOTE
 # Atega comes with a built-in contact form, that you can use with Formspree service to handle up to 50 submissions per month for free. You could also easily switch to another contact form service if you want.
