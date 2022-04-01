@@ -19,8 +19,8 @@ author:
 # Hero Settings
 hero:
   hero__title: Hi, I'm <span class="hero__name">Jay Lee</span>.
-  hero__job: 
-  hero__description: Having 4 years of experience as a business/finance analyst and advanced degree in business analytics, I'm passionate about utilizing data analytics to impact business. 
+  hero__job: Business & Data Analyst
+  hero__description: Having 5+ years of experience in business/finance analysis and operation management, as well as pursuing a Master's degree in business analytics, I'm passionate about utilizing data analytics to impact business. 
   hero__button__text: Read about my past
   hero__button__link: '/about'
   hero__image: '/images/profile.jpg'
