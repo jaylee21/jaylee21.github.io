@@ -3,7 +3,7 @@ layout: post
 title:  Design Database and SQL queries to enhance KPI measurement
 date:   2021-12-19 09:17:01 +0300
 image:  '/images/2021-12-19-dev-db/2021-12-19-main.jpg'
-tags:   [Database, SQL, KPI]
+tags:   [DB Design, SQL]
 ---
 
 ## Summary

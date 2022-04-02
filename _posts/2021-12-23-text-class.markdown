@@ -22,7 +22,7 @@ In this project, our group **aimed to develop a classification model** that corr
 FIrst, we performed web-scrapping in the video gaming cateogry in Craigslist. We collected posting id, datetime, city, title, price, place, and description. Then we cleaned the data by removing dollar sign in price and parentheses in place, making the description column in one line, and lowering the title case. 
 
 <div style='text-align:center'>
-<h5>[Date cleaning]</h5>
+<h5>[Data cleaning]</h5>
 </div>
 <div style="text-align:center;">
 <img src="../images/2021-12-23-text-class/picture1.png" alt="picture1.png" style="zoom:70%;" class="center" />
