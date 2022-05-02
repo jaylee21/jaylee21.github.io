@@ -2,7 +2,7 @@
 layout: post
 title:  Intelligently Ordering Machine Translation Seed Data to Improve Local Language Translation
 date:   2022-04-08 15:01:35 +0300
-image:  '/images/2022-02-21-surv/header-sil.jpg'
+image:  '\images\header-sil.jpg'
 tags:   [Python, NLP, Transformers]
 ---
 
